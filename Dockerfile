@@ -8,7 +8,9 @@ RUN npm run build # Agregar el paso de construcción
 CMD ["npm", "run", "start"]
 
 
-FROM nginx
 # from here its production stage
-COPY --from=builder /app/build /usr/share/nginx/html
-# copy from builder stage to nginx html folder 
+FROM nginx
+# Exponer el puerto 80 para Elastic Beanstalk
+EXPOSE 80 
+# copy from builder stage to nginx html folder
+COPY --from=builder /app/build /usr/share/nginx/html 

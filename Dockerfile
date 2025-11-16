@@ -11,4 +11,4 @@ CMD ["npm", "run", "start"]
 FROM nginx
 # from here its production stage
 COPY --from=builder /app/build /usr/share/nginx/html
-# copy from builder stage to nginx html folder
+# copy from builder stage to nginx html folder 
